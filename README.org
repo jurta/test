@@ -59,7 +59,7 @@ using DataFrames
 
 #+RESULTS:
 | Row | a       | b       | c       | d       |
-|     | [90mFloat64[39m | [90mFloat64[39m | [90mFloat64[39m | [90mFloat64[39m |
+|     | Float64 | Float64 | Float64 | Float64 |
 |-----+---------+---------+---------+---------|
 | 1   | 8.04    | 9.14    | 7.46    | 6.58    |
 | 2   | 6.95    | 8.14    | 6.77    | 5.76    |
@@ -105,3 +105,23 @@ import Pkg; Pkg.add("RDatasets")
 ******* 7
 ******** 8
 ********* 9
+
+#+BEGIN_SRC julia :eval no-export :exports none
+using Plots
+#+END_SRC
+
+#+BEGIN_SRC julia :eval no-export :exports both :results silent :wrap "SRC julia :eval never"
+using Plots
+#+END_SRC
+
+#+BEGIN_SRC julia :eval no-export :exports both :results output :wrap "SRC julia :eval never"
+using Plots
+#+END_SRC
+
+#+BEGIN_SRC julia :eval no-export :exports code :results silent
+using Plots
+#+END_SRC
+
+#+BEGIN_SRC julia :eval no-export :session *demo_session* :results graphics :file example.png :exports results
+savefig("example.png")
+#+END_SRC

@@ -46,15 +46,21 @@ t
 #+RESULTS:
 | org | mode | is | great |
 
-#+BEGIN_SRC julia :exports both
+#+BEGIN_SRC julia :exports none
 using DataFrames
 #+END_SRC
 
 #+RESULTS:
 5×4 DataFrame
+
+#+BEGIN_SRC julia :exports both
+using DataFrames
+#+END_SRC
+
+#+RESULTS:
 | Row | a       | b       | c       | d       |
 |     | [90mFloat64[39m | [90mFloat64[39m | [90mFloat64[39m | [90mFloat64[39m |
-+-----+---------+---------+---------+---------+
+|-----+---------+---------+---------+---------|
 | 1   | 8.04    | 9.14    | 7.46    | 6.58    |
 | 2   | 6.95    | 8.14    | 6.77    | 5.76    |
 | 3   | 7.58    | 8.74    | 12.74   | 7.71    |

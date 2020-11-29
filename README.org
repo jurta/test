@@ -4,20 +4,22 @@
 #+STARTUP: inlineimages
 #+EXCLUDE_TAGS: noexport
 #+SELECT_TAGS: export
-#+PROPERTY: header-args :eval never-export
+#+PROPERTY: header-args :exports both
+#+PROPERTY: header-args:julia :exports both
+#+PROPERTY: header-args:jupyter-julia :exports both
 
 * Installation
 
 https://github.com/nnicandro/emacs-jupyter
 
-#+BEGIN_SRC julia :results output :exports both
+#+BEGIN_SRC julia :results output
 2 * 2
 #+END_SRC
 
 #+RESULTS:
 : 4
 
-#+BEGIN_SRC julia :file images/test1.svg :exports both
+#+BEGIN_SRC julia :file images/test1.svg
 using Plots
 plot(plot, label="line")
 #+END_SRC
@@ -31,14 +33,14 @@ plot(plot, label="line")
 | d | e | f |
 | g | h | i |
 
-#+BEGIN_SRC julia :results table :results output :exports both
+#+BEGIN_SRC julia :results table :results output
 [1, 2, 3]
 #+END_SRC
 
 #+RESULTS:
 | : 3-element Array{Int64,1}: |
 
-#+BEGIN_SRC julia :exports both
+#+BEGIN_SRC julia
 t = ("org", "mode", "is", "great")
 t
 #+END_SRC
@@ -53,7 +55,7 @@ using DataFrames
 #+RESULTS:
 5×4 DataFrame
 
-#+BEGIN_SRC julia :exports both
+#+BEGIN_SRC julia
 using DataFrames
 #+END_SRC
 
@@ -67,7 +69,7 @@ using DataFrames
 | 4   | 8.81    | 8.77    | 7.11    | 8.84    |
 | 5   | 8.33    | 9.27    | 7.81    | 8.47    |
 
-#+BEGIN_SRC julia :exports both
+#+BEGIN_SRC julia
 using DataFrames
 # An example with column names:
 dtf = DataFrame(
@@ -81,11 +83,11 @@ dtf
 #+END_SRC
 
 #+RESULTS:
-#+BEGIN_EXPORT html :exports both
+#+BEGIN_EXPORT html
 <table class="data-frame"><thead><tr><th></th><th>a</th><th>b</th><th>c</th><th>d</th></tr><tr><th></th><th>Float64</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>5 rows × 4 columns</p><tr><th>1</th><td>8.04</td><td>9.14</td><td>7.46</td><td>6.58</td></tr><tr><th>2</th><td>6.95</td><td>8.14</td><td>6.77</td><td>5.76</td></tr><tr><th>3</th><td>7.58</td><td>8.74</td><td>12.74</td><td>7.71</td></tr><tr><th>4</th><td>8.81</td><td>8.77</td><td>7.11</td><td>8.84</td></tr><tr><th>5</th><td>8.33</td><td>9.27</td><td>7.81</td><td>8.47</td></tr></tbody></table>
 #+END_EXPORT
 
-#+BEGIN_SRC julia :exports both
+#+BEGIN_SRC julia
 import Pkg; Pkg.add("RDatasets")
 #+END_SRC
 
@@ -105,23 +107,3 @@ import Pkg; Pkg.add("RDatasets")
 ******* 7
 ******** 8
 ********* 9
-
-#+BEGIN_SRC julia :eval no-export :exports none
-using Plots
-#+END_SRC
-
-#+BEGIN_SRC julia :eval no-export :exports both :results silent :wrap "SRC julia :eval never"
-using Plots
-#+END_SRC
-
-#+BEGIN_SRC julia :eval no-export :exports both :results output :wrap "SRC julia :eval never"
-using Plots
-#+END_SRC
-
-#+BEGIN_SRC julia :eval no-export :exports code :results silent
-using Plots
-#+END_SRC
-
-#+BEGIN_SRC julia :eval no-export :session *demo_session* :results graphics :file example.png :exports results
-savefig("example.png")
-#+END_SRC

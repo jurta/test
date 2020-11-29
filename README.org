@@ -1,25 +1,19 @@
 #+TITLE: Test org babel figure output
 #+AUTHOR: Me
 #+EDITOR: GNU Emacs 28.0 (Org mode 9.4)
-#+STARTUP: inlineimages
-#+EXCLUDE_TAGS: noexport
-#+SELECT_TAGS: export
-#+PROPERTY: header-args :exports both
-#+PROPERTY: header-args:julia :exports both
-#+PROPERTY: header-args:jupyter-julia :exports both
 
 * Installation
 
 https://github.com/nnicandro/emacs-jupyter
 
-#+BEGIN_SRC julia :results output
+#+BEGIN_SRC julia :exports both
 2 * 2
 #+END_SRC
 
 #+RESULTS:
 : 4
 
-#+BEGIN_SRC julia :file images/test1.svg
+#+BEGIN_SRC julia :file images/test1.svg :exports both
 using Plots
 plot(plot, label="line")
 #+END_SRC
@@ -33,14 +27,14 @@ plot(plot, label="line")
 | d | e | f |
 | g | h | i |
 
-#+BEGIN_SRC julia :results table :results output
+#+BEGIN_SRC julia :results table ::exports both
 [1, 2, 3]
 #+END_SRC
 
 #+RESULTS:
 | : 3-element Array{Int64,1}: |
 
-#+BEGIN_SRC julia
+#+BEGIN_SRC julia :exports both
 t = ("org", "mode", "is", "great")
 t
 #+END_SRC
@@ -55,13 +49,12 @@ using DataFrames
 #+RESULTS:
 5×4 DataFrame
 
-#+BEGIN_SRC julia
+#+BEGIN_SRC julia :exports both
 using DataFrames
 #+END_SRC
 
 #+RESULTS:
 | Row | a       | b       | c       | d       |
-|     | Float64 | Float64 | Float64 | Float64 |
 |-----+---------+---------+---------+---------|
 | 1   | 8.04    | 9.14    | 7.46    | 6.58    |
 | 2   | 6.95    | 8.14    | 6.77    | 5.76    |
@@ -69,7 +62,7 @@ using DataFrames
 | 4   | 8.81    | 8.77    | 7.11    | 8.84    |
 | 5   | 8.33    | 9.27    | 7.81    | 8.47    |
 
-#+BEGIN_SRC julia
+#+BEGIN_SRC julia :exports both
 using DataFrames
 # An example with column names:
 dtf = DataFrame(
@@ -83,11 +76,15 @@ dtf
 #+END_SRC
 
 #+RESULTS:
-#+BEGIN_EXPORT html
+#+BEGIN_EXPORT html :exports both
 <table class="data-frame"><thead><tr><th></th><th>a</th><th>b</th><th>c</th><th>d</th></tr><tr><th></th><th>Float64</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>5 rows × 4 columns</p><tr><th>1</th><td>8.04</td><td>9.14</td><td>7.46</td><td>6.58</td></tr><tr><th>2</th><td>6.95</td><td>8.14</td><td>6.77</td><td>5.76</td></tr><tr><th>3</th><td>7.58</td><td>8.74</td><td>12.74</td><td>7.71</td></tr><tr><th>4</th><td>8.81</td><td>8.77</td><td>7.11</td><td>8.84</td></tr><tr><th>5</th><td>8.33</td><td>9.27</td><td>7.81</td><td>8.47</td></tr></tbody></table>
 #+END_EXPORT
 
-#+BEGIN_SRC julia
+#+BEGIN_EXAMPLE
+<table class="data-frame"><thead><tr><th></th><th>a</th><th>b</th><th>c</th><th>d</th></tr><tr><th></th><th>Float64</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>5 rows × 4 columns</p><tr><th>1</th><td>8.04</td><td>9.14</td><td>7.46</td><td>6.58</td></tr><tr><th>2</th><td>6.95</td><td>8.14</td><td>6.77</td><td>5.76</td></tr><tr><th>3</th><td>7.58</td><td>8.74</td><td>12.74</td><td>7.71</td></tr><tr><th>4</th><td>8.81</td><td>8.77</td><td>7.11</td><td>8.84</td></tr><tr><th>5</th><td>8.33</td><td>9.27</td><td>7.81</td><td>8.47</td></tr></tbody></table>
+#+END_EXAMPLE
+
+#+BEGIN_SRC julia :exports both
 import Pkg; Pkg.add("RDatasets")
 #+END_SRC
 
@@ -97,6 +94,19 @@ import Pkg; Pkg.add("RDatasets")
 [?25l    [32m[1m   Updating[22m[39m git-repo `https://github.com/JuliaRegistries/General.git`
 [32m[1m   Updating[22m[39m `~/.julia/environments/v1.4/Project.toml`
 #+END_EXAMPLE
+
+#+begin_src jupyter-julia :results org :exports both
+DataFrame(A=1:3, B=rand(3), C=randstring.([3,3,3]), fixed=1)
+#+end_src
+
+#+results:
+#+begin_src org
+: │ Row │ A     │ B        │ C      │ fixed │
+: ├─────┼───────┼──────────┼────────┼───────┤
+: │ 1   │ 1     │ 0.953671 │ 0mO    │ 1     │
+: │ 2   │ 2     │ 0.897785 │ IhU    │ 1     │
+: │ 3   │ 3     │ 0.691804 │ 6Aq    │ 1     │
+#+end_src
 
 * 1
 ** 2

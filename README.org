@@ -7,19 +7,19 @@
 
 https://github.com/nnicandro/emacs-jupyter
 
-#+begin_src jupyter-julia
+#+BEGIN_SRC jupyter-julia
 2 * 2
-#+end_src
+#+END_SRC
 
-#+results:
+#+RESULTS:
 : 4
 
-#+begin_src jupyter-julia :file images/test1.svg
+#+BEGIN_SRC jupyter-julia :file images/test1.svg
 using Plots
 plot(plot, label="line")
-#+end_src
+#+END_SRC
 
-#+results:
+#+RESULTS:
 [[file:images/test1.svg]]
 
 ** =S-TAB= in tables
@@ -28,26 +28,26 @@ plot(plot, label="line")
 | d | e | f |
 | g | h | i |
 
-#+begin_src jupyter-julia :results table
+#+BEGIN_SRC jupyter-julia :results table
 [1, 2, 3]
-#+end_src
+#+END_SRC
 
-#+results:
+#+RESULTS:
 | : 3-element Array{Int64,1}: |
 
-#+begin_src jupyter-julia
+#+BEGIN_SRC jupyter-julia
 t = ("org", "mode", "is", "great")
 t
-#+end_src
+#+END_SRC
 
-#+results:
+#+RESULTS:
 | org | mode | is | great |
 
-#+begin_src jupyter-julia
+#+BEGIN_SRC jupyter-julia
 using DataFrames
-#+end_src
+#+END_SRC
 
-#+results:
+#+RESULTS:
 : 5×4 DataFrame
 : │ Row │ a       │ b       │ c       │ d       │
 : │     │ [90mFloat64[39m │ [90mFloat64[39m │ [90mFloat64[39m │ [90mFloat64[39m │
@@ -58,7 +58,7 @@ using DataFrames
 : │ 4   │ 8.81    │ 8.77    │ 7.11    │ 8.84    │
 : │ 5   │ 8.33    │ 9.27    │ 7.81    │ 8.47    │
 
-#+begin_src jupyter-julia
+#+BEGIN_SRC jupyter-julia
 using DataFrames
 # An example with column names:
 dtf = DataFrame(
@@ -69,23 +69,23 @@ dtf = DataFrame(
   8.33   9.27  7.81   8.47])
 rename!(dtf, [:a, :b, :c, :d])
 dtf
-#+end_src
+#+END_SRC
 
-#+results:
-#+begin_export html
+#+RESULTS:
+#+BEGIN_EXPORT html
 <table class="data-frame"><thead><tr><th></th><th>a</th><th>b</th><th>c</th><th>d</th></tr><tr><th></th><th>Float64</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>5 rows × 4 columns</p><tr><th>1</th><td>8.04</td><td>9.14</td><td>7.46</td><td>6.58</td></tr><tr><th>2</th><td>6.95</td><td>8.14</td><td>6.77</td><td>5.76</td></tr><tr><th>3</th><td>7.58</td><td>8.74</td><td>12.74</td><td>7.71</td></tr><tr><th>4</th><td>8.81</td><td>8.77</td><td>7.11</td><td>8.84</td></tr><tr><th>5</th><td>8.33</td><td>9.27</td><td>7.81</td><td>8.47</td></tr></tbody></table>
-#+end_export
+#+END_EXPORT
 
-#+begin_src jupyter-julia
+#+BEGIN_SRC jupyter-julia
 import Pkg; Pkg.add("RDatasets")
-#+end_src
+#+END_SRC
 
-#+results:
-#+begin_example
+#+RESULTS:
+#+BEGIN_EXAMPLE
 [32m[1m   Updating[22m[39m registry at `~/.julia/registries/General`
 [?25l    [32m[1m   Updating[22m[39m git-repo `https://github.com/JuliaRegistries/General.git`
 [32m[1m   Updating[22m[39m `~/.julia/environments/v1.4/Project.toml`
-#+end_example
+#+END_EXAMPLE
 
 * 1
 ** 2

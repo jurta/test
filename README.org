@@ -1,0 +1,97 @@
+#+TITLE: Test org babel figure output
+#+AUTHOR: Me
+#+STARTUP: inlineimages
+
+* Installation
+
+https://github.com/nnicandro/emacs-jupyter
+
+#+begin_src jupyter-julia
+2 * 2
+#+end_src
+
+#+results:
+: 4
+
+#+begin_src jupyter-julia :file images/test1.svg
+using Plots
+plot(plot, label="line")
+#+end_src
+
+#+results:
+[[file:images/test1.svg]]
+
+** =S-TAB= in tables
+
+| a | b | c |
+| d | e | f |
+| g | h | i |
+
+#+begin_src jupyter-julia :results table
+[1, 2, 3]
+#+end_src
+
+#+results:
+| : 3-element Array{Int64,1}: |
+
+#+begin_src jupyter-julia
+t = ("org", "mode", "is", "great")
+t
+#+end_src
+
+#+results:
+| org | mode | is | great |
+
+#+begin_src jupyter-julia
+using DataFrames
+#+end_src
+
+#+results:
+: 5×4 DataFrame
+: │ Row │ a       │ b       │ c       │ d       │
+: │     │ [90mFloat64[39m │ [90mFloat64[39m │ [90mFloat64[39m │ [90mFloat64[39m │
+: ├─────┼─────────┼─────────┼─────────┼─────────┤
+: │ 1   │ 8.04    │ 9.14    │ 7.46    │ 6.58    │
+: │ 2   │ 6.95    │ 8.14    │ 6.77    │ 5.76    │
+: │ 3   │ 7.58    │ 8.74    │ 12.74   │ 7.71    │
+: │ 4   │ 8.81    │ 8.77    │ 7.11    │ 8.84    │
+: │ 5   │ 8.33    │ 9.27    │ 7.81    │ 8.47    │
+
+#+begin_src jupyter-julia
+using DataFrames
+# An example with column names:
+dtf = DataFrame(
+ [8.04   9.14  7.46   6.58;
+  6.95   8.14  6.77   5.76;
+  7.58   8.74  12.74  7.71;
+  8.81   8.77  7.11   8.84;
+  8.33   9.27  7.81   8.47])
+rename!(dtf, [:a, :b, :c, :d])
+dtf
+#+end_src
+
+#+results:
+#+begin_export html
+<table class="data-frame"><thead><tr><th></th><th>a</th><th>b</th><th>c</th><th>d</th></tr><tr><th></th><th>Float64</th><th>Float64</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>5 rows × 4 columns</p><tr><th>1</th><td>8.04</td><td>9.14</td><td>7.46</td><td>6.58</td></tr><tr><th>2</th><td>6.95</td><td>8.14</td><td>6.77</td><td>5.76</td></tr><tr><th>3</th><td>7.58</td><td>8.74</td><td>12.74</td><td>7.71</td></tr><tr><th>4</th><td>8.81</td><td>8.77</td><td>7.11</td><td>8.84</td></tr><tr><th>5</th><td>8.33</td><td>9.27</td><td>7.81</td><td>8.47</td></tr></tbody></table>
+#+end_export
+
+#+begin_src jupyter-julia
+import Pkg; Pkg.add("RDatasets")
+#+end_src
+
+#+results:
+#+begin_example
+[32m[1m   Updating[22m[39m registry at `~/.julia/registries/General`
+[?25l    [32m[1m   Updating[22m[39m git-repo `https://github.com/JuliaRegistries/General.git`
+[32m[1m   Updating[22m[39m `~/.julia/environments/v1.4/Project.toml`
+#+end_example
+
+* 1
+** 2
+*** 3
+**** 4
+***** 5
+****** 6
+******* 7
+******** 8
+********* 9
